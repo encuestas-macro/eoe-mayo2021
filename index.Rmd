@@ -1,0 +1,180 @@
+---
+css: style_eoe.css
+pagetitle: "EOE mayo 2021"
+output: html_document
+---
+
+```{r config, include=FALSE}
+library(dplyr)
+library(stringr)
+library(lubridate)
+library(dygraphs)
+library(kableExtra)
+library(formattable)
+knitr::opts_chunk$set(message = FALSE, warning = FALSE, echo = FALSE)
+load(here::here("data", "eoe", "eoe_ws"))
+sparkline::sparkline(0)
+```
+
+
+<!-- Header del documento -->
+<div class = "header">
+
+  <div class="imagen">
+  <img src="img/bcrd_squared.png" alt="drawing"/>
+  </div>
+  
+  <div class="title">
+  <h2>Banco Central de la República Dominicana<br>
+Encuesta de Opinión Empresarial</h2>
+<span>Mayo 2021</span>
+  </div>
+  
+</div>
+
+<hr class="head-ruler">
+
+<!-- ---------------------------------------------------------------------------------------------- -->
+
+### Situación económica del sector industrial se mantiene positiva
+<div class = "first-container">
+<div class= "left">
+
+El indicador sobre la situación económica del sector industrial sigue mostrando signos de recuperación, al registrar en mayo un saldo de 44.8, el más alto desde diciembre de 2019. Este resultado se alcanza con 44.8% de las empresas indicando que su situación económica mejoró respecto al mes anterior. Paralelamente, ninguna de las empresas consultadas considera que su situación económica empeoró respecto a abril.
+
+Por otro lado, el indicador sobre el nivel de inventario marcó una variación positiva de 6.6 puntos, para un saldo de 11.1 que representa un aumento en las existencias.
+
+</div>
+
+<div class = "right">
+#### Situación económica del mes actual
+```{r, fig.height=3, fig.width=5}
+dyg_sit_econ
+```
+</div>
+</div>
+
+<!-- ---------------------------------------------------------------------------------------------- -->
+
+### Notable recuperación de la producción y los pedidos
+***
+
+<div class = "second-container">
+
+<div class= "left">
+
+Según los empresarios, el nivel de producción en el sector aumentó en mayo de 2021, tras dos meses consecutivos registrando saldos negativos. En esta medición el indicador se coloca en 13.8, para una variación positiva de 18.0 puntos respecto al registrado en abril (-4.2).
+
+Del mismo modo, el indicador sobre el nivel de pedidos aumentó de manera importante, alcanzando nuevamente valores positivos tras seis meses con saldos por debajo de 0.0. En la medición correspondiente a mayo, el saldo para este indicador fue de 25.0, con 46.4% de las empresas indicando que su nivel de pedidos fue mayor.
+
+Esta situación favorable se extiende también al indicador de empleo, el cuál, con un saldo de 0.0, revirtió la tendencia negativa que venía trazando en los últimos meses.
+
+</div>
+
+<div class = "right">
+#### Producción y pedidos respecto al mes anterior
+```{r, fig.height=3, fig.width=5}
+dyg_produccion_pedidos_empleo
+```
+
+</div>
+</div>
+
+
+<!-- ----------------------------------------------------------------------------- -->
+### Las expectativas se mantienen favorables
+***
+
+<div class = "third-container">
+<div class= "left first">
+
+En el mes de mayo las expectativas para las distintas variables del sector industrial mostraron resultados positivos y superiores a los observados el mes anterior, revelando una postura más optimista del empresariado de cara a al inicio del segundo semestre del 2021.
+
+En este sentido, el saldo que resume las expectativas sobre la situación económica de los próximos seis meses registró un saldo de 58.6, para una variación positiva respecto a abril (4.5).
+
+</div>
+
+<div class = "right first">
+#### Expectativas situación económica (próximos 6 meses) 
+```{r, fig.height=3, fig.width=5}
+dyg_exp_sit_econ
+```
+
+</div>
+
+<div class= "left secondl">
+
+Los empresarios del sector también revisaron al alza sus expectativas para la producción y el empleo, de modo que ambas variables se mantienen con balances positivos en mayo, con saldos de 48.3 y 17.3, respectivamente.  
+
+</div>
+
+<div class= "right second">
+
+#### Expectativas de producción y empleo
+```{r, , fig.height=3, fig.width=5}
+dyg_exp_prod_empleo
+```
+
+</div>
+</div>
+
+<!-- ---------------------------------------------------------------------------------------------- -->
+### Confianza industrial y clima empresarial
+***
+
+<div class = "fourth-container">
+<div class= "left first">
+
+El Índice de Confianza Industrial (ICI) resume la actividad actual y las expectativas de actividad futura de las empresas del sector manufacturero en base a variables observables de las empresas. Este indicador mostró un ligero incremento en mayo, para un resultado de 60.4. La evolución del indicador se explica principalmente por el aumento de la producción y los pedidos.
+
+</div>
+
+<div class = "right first">
+#### Indicador de Confianza Industrial
+
+```{r, fig.height=3, fig.width=5}
+dyg_ici
+```
+
+</div>
+
+<div class = "left secondl">
+
+Asimismo, la percepción que tienen los empresarios del sector acerca de la situación económica actual y futura de sus empresas se sintetiza a través del Indicador de Clima Empresarial (ICE). Para este sondeo el indicador se coloca por encima del promedio de los últimos 6 meses, con un resultado de 51.6.
+
+</div>
+
+<div class = "right second">
+
+#### Indicador de Clima Empresarial
+```{r, fig.height=3, fig.width=5}
+dyg_ice
+```
+
+</div>
+
+</div>
+
+<!-- ---------------------------------------------------------------------------------------------- -->
+<div class="cuadro-resumen">
+### Cuadro resumen
+***
+
+```{r}
+tabla_draft
+```
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
